@@ -1,15 +1,12 @@
-"use client"
 import { ArrowRight, Lock } from "lucide-react"
 import { RiGithubFill } from "@remixicon/react"
 import Image from "next/image"
 import Link from "next/link"
-import { useTheme } from "next-themes"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { site } from "@/config/site"
 
 export const HeroSection = () => {
-    const { theme } = useTheme()
     return (
         <section className="container mx-auto w-full px-4">
             <div className="grid gap-12 py-24 md:grid-cols-2 md:items-center md:gap-14 lg:grid-cols-[0.8fr,1.2fr] lg:gap-20 xl:gap-24 xl:py-32">
@@ -103,10 +100,16 @@ export const HeroSection = () => {
                     <Image
                         width={1400}
                         height={1400}
-                        className="relative flex w-full items-center"
-                        src={
-                            theme === "light" ? "/dash-light.png" : "/dash.png"
-                        }
+                        className="relative hidden w-full items-center dark:flex"
+                        src="/dash.png"
+                        alt="dashboard preview"
+                        priority
+                    />
+                    <Image
+                        width={1400}
+                        height={1400}
+                        className="relative flex w-full items-center dark:hidden"
+                        src="/dash-light.png"
                         alt="dashboard preview"
                         priority
                     />
